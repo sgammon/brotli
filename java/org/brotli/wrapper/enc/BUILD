@@ -9,7 +9,7 @@ filegroup(
 
 filegroup(
     name = "brotli_jni",
-    srcs = ["@//java:brotli_jni.dll"],
+    srcs = ["@brotli//java:brotli_jni.dll"],
 )
 
 java_library(
@@ -18,7 +18,7 @@ java_library(
         ["*.java"],
         exclude = ["*Test*.java"],
     ),
-    resource_jars = ["@//java:license"],
+    resource_jars = ["@brotli//java:license"],
 )
 
 java_library(
@@ -27,16 +27,16 @@ java_library(
     srcs = glob(["*Test*.java"]),
     deps = [
         ":enc",
-        "@//org/brotli/integration:brotli_jni_test_base",
-        "@//org/brotli/integration:bundle_helper",
-        "@//org/brotli/wrapper/dec",
+        "@brotli//org/brotli/integration:brotli_jni_test_base",
+        "@brotli//org/brotli/integration:bundle_helper",
+        "@brotli//org/brotli/wrapper/dec",
         "@junit_junit//jar",
     ],
 )
 
 filegroup(
     name = "test_bundle",
-    srcs = ["@//org/brotli/integration:test_corpus"],
+    srcs = ["@brotli//org/brotli/integration:test_corpus"],
 )
 
 java_test(
